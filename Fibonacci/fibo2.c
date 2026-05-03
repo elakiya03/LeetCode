@@ -1,4 +1,5 @@
 /*
+ * Approach - Bottom Up  space optimized - O(n) time and O(1) space
  * Program: Fibonacci Sequence Printer
  * Description: Reads an integer n and prints the first n Fibonacci numbers.
  */

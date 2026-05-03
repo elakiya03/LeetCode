@@ -1,4 +1,5 @@
 /*
+* Technique : Recursion - O(2^n)
  * Program: Fibonacci Calculator
  * Description: Reads an integer n and computes the nth Fibonacci number using recursion. Prints the result.
  */
@@ -21,5 +22,3 @@ int main()
     cout << "Fibo: " << fibonacci(x) << endl;
     return 0;
 }
-
-// time = O(2^n) - very slow
