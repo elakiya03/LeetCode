@@ -17,9 +17,9 @@ int toDecimal(string num, int src)
     return dec;
 }
 
-string baseConversion(string num, int src, int base)
+string baseConversion(int n, int base)
 {
-    int n = toDecimal(num, src);
+    //int n = toDecimal(num, src);
 
     if (n == 0)
         return "0";
@@ -36,13 +36,13 @@ string baseConversion(string num, int src, int base)
 }
 int main()
 {
-    string num;
+    int num;
     cin >> num;
 
     int src, tgt;
     cin >> src >> tgt;
 
-    cout << baseConversion(num, src, tgt) << endl;
+    cout << baseConversion(num, tgt) << endl;
 
     return 0;
 }
