@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 
-void mergeTwoSortedList(int arr1[], int arr2[], int n1, int n2)
+void mergeTwoSortedArray(int arr1[], int arr2[], int n1, int n2)
 {
 
     int temp[n1 + n2];
@@ -46,5 +46,5 @@ int main()
     for (int i = 0; i < n2; i++)
         scanf("%d", &arr2[i]);
 
-    mergeTwoSortedList(arr1, arr2, n1, n2);
+    mergeTwoSortedArray(arr1, arr2, n1, n2);
 }
