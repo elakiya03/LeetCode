@@ -16,10 +16,6 @@ string isAnagram(string s1, string s2)
     for (int i = 0; i < s1.length(); i++)
     {
         arr[s1[i] - 'a']++;
-    }
-
-    for (int i = 0; i < s2.length(); i++)
-    {
         arr[s2[i] - 'a']--;
     }
 

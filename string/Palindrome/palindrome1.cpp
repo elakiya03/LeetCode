@@ -6,23 +6,24 @@
 #include <iostream>
 using namespace std;
 
-int main()
+bool isPalindrome(string word)
 {
-
-    string word;
-    getline(cin, word);
-
     int l = word.length();
 
     for (int i = 0; i < word.length() / 2; i++)
     {
         if (tolower(word[i]) != tolower(word[l - i - 1]))
         {
-            cout << "No";
-            return 0;
+            return false;
         }
     }
-    cout << "Yes" << endl;
+    return true;
+}
+int main()
+{
 
+    string word;
+    getline(cin, word);
+    cout << (isPalindrome(word) ? "Yes" : "No") << endl;
     return 0;
 }

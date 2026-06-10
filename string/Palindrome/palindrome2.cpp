@@ -6,7 +6,7 @@
 #include <iostream>
 using namespace std;
 
-string palindrome(string word)
+bool palindrome(string word)
 {
     // string rev = word;
     // reverse(rev.begin(), rev.end());
@@ -16,12 +16,12 @@ string palindrome(string word)
     // else
     //     cout << "Not Palindrome" << endl;
 
-    return word == string(word.rbegin(), word.rend()) ? "Palindrome" : "No";
+    return word == string(word.rbegin(), word.rend()) ? true : false;
 }
 int main()
 {
     string s;
     getline(cin, s);
-    cout<<palindrome(s);
+    cout << (palindrome(s) ? "Palindrome" : "Not Palindrome") << endl;
     return 0;
 }

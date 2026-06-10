@@ -4,7 +4,8 @@
  */
 
 #include <stdio.h>
-#include<string.h>
+#include <string.h>
+#include <ctype.h>
 
 const char *isPalindrome(char *str)
 {
@@ -12,7 +13,7 @@ const char *isPalindrome(char *str)
 
     for (int i = 0; i < length / 2; i++)
     {
-        if (str[i] != str[length - i - 1])
+        if (tolower(str[i]) != tolower(str[length - i - 1]))
         {
             return "No";
         }

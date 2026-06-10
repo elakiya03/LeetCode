@@ -16,10 +16,6 @@ const char *isAnagram(char s1[], char s2[])
     for (int i = 0; i < strlen(s1); i++)
     {
         arr[s1[i] - 'a']++;
-    }
-
-    for (int i = 0; i < strlen(s2); i++)
-    {
         arr[s2[i] - 'a']--;
     }
 

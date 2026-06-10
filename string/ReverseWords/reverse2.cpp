@@ -7,11 +7,8 @@
 #include <sstream>
 using namespace std;
 
-int main()
+string reverseWords(string sentence)
 {
-    string sentence;
-    getline(cin, sentence);
-
     stringstream ss(sentence);
     stack<string> s;
     string word;
@@ -21,13 +18,22 @@ int main()
         s.push(word);
     }
 
+    word = "";
+
     while (!s.empty())
     {
-        cout << s.top();
+        word += s.top();
         s.pop();
         if (!s.empty())
-            cout << " ";
+            word += " ";
     }
-    cout << endl;
+    return word;
+}
+
+int main()
+{
+    string sentence;
+    getline(cin, sentence);
+    cout << reverseWords(sentence) << endl;
     return 0;
 }

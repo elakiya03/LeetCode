@@ -7,22 +7,16 @@
 #include <sstream> //string stream
 using namespace std;
 
-int main()
+string reverseWords(string sentence)
 {
-    string sentence;
-    getline(cin, sentence);
-
     stringstream ss(sentence);
     vector<string> v;
     string word;
 
-    // split words
     while (ss >> word)
     {
         v.push_back(word);
     }
-
-    // reverse words
     reverse(v.begin(), v.end());
 
     word = "";
@@ -34,7 +28,14 @@ int main()
         }
         word += v[i];
     }
+    return word;
+}
 
-    cout << word << endl;
+int main()
+{
+    string sentence;
+    getline(cin, sentence);
+
+    
     return 0;
 }
