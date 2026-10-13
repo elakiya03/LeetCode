@@ -1,8 +1,3 @@
-/*
- * Program: Array Doubler
- * Description: Reads an integer n, followed by n integers. Doubles each integer in the array and prints the modified array.
- */
-
 #include <stdio.h>
 
 // Function to double each element of the array
@@ -23,12 +18,14 @@ void doubleAll(int arr[], int n)
 int main()
 {
     int n;
+    printf("Enter no of elements: ");
     scanf("%d", &n);
 
     // Create array of size n
     int arr[n];
 
     // Read elements into array
+    printf("\nEnter %d values\n", n);
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &arr[i]);
@@ -40,6 +37,7 @@ int main()
 
     // Printing updated array
     // Values are changed because we modified original memory
+    printf("Result: ");
     for (int i = 0; i < n; i++)
     {
         printf("%d ", arr[i]);
