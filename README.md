@@ -223,7 +223,243 @@ This creates:
 
 ---
 
-## 4. Quick Comparison
+## 4. Find the Number of Elements
+
+The number of elements is the array's length. The syntax depends on the language and the kind of array.
+
+| Language                          | Example                        | Meaning                                          |
+| --------------------------------- | ------------------------------ | ------------------------------------------------ |
+| C                                 | `sizeof(arr) / sizeof(arr[0])` | Total array bytes divided by one element's bytes |
+| C++ `std::vector` or `std::array` | `arr.size()`                   | Number of elements in the container              |
+| C++ built-in array (C++17+)       | `std::size(arr)`               | Number of elements; include `<iterator>`         |
+| Java array                        | `arr.length`                   | Number of elements; no parentheses               |
+| Python list                       | `len(arr)`                     | Number of elements                               |
+| JavaScript array                  | `arr.length`                   | Number of elements                               |
+
+### C example
+
+```c
+int arr[] = {10, 20, 30};
+int length = sizeof(arr) / sizeof(arr[0]);
+```
+
+`sizeof(arr)` is the size of the whole array in bytes. `sizeof(arr[0])` is the size of one element in bytes. Dividing them gives the number of elements.
+
+**Important:** This calculation only works where `arr` is still an actual array. When a C array is passed to a function, it is treated like a pointer, so pass the length to the function separately.
+
+## 5. Loop Through an Array
+
+Use a loop to visit the array's elements one at a time.
+
+### For-each loop: visit each value
+
+Use this when you need the values but do not need their index positions.
+
+#### C
+
+C has no built-in for-each loop, so use an index-based loop instead (shown below).
+
+#### C++ (C++11+)
+
+```cpp
+for (int item : arr) {
+	std::cout << item << '\n';
+}
+```
+
+#### Java
+
+```java
+for (int item : arr) {
+	System.out.println(item);
+}
+```
+
+#### Python
+
+```python
+for item in arr:
+	print(item)
+```
+
+#### JavaScript
+
+```javascript
+for (const item of arr) {
+  console.log(item);
+}
+```
+
+### Index-based loop: use each position
+
+Use this when you need the index, want to change an element, skip positions, or loop backwards. In these examples, `i` is the current index and `arr[i]` is the value at that index.
+
+#### C
+
+```c
+int length = sizeof(arr) / sizeof(arr[0]);
+for (int i = 0; i < length; i++) {
+	printf("%d\n", arr[i]);
+}
+```
+
+#### C++
+
+```cpp
+for (int i = 0; i < arr.size(); i++) {
+	std::cout << arr[i] << '\n';
+}
+```
+
+For a built-in C++ array, use its known length or `std::size(arr)` (C++17+) instead of `.size()`.
+
+#### Java
+
+```java
+for (int i = 0; i < arr.length; i++) {
+	System.out.println(arr[i]);
+}
+```
+
+#### Python
+
+```python
+for i in range(len(arr)):
+	print("Index", i, "Value", arr[i])
+```
+
+#### JavaScript
+
+```javascript
+for (let i = 0; i < arr.length; i++) {
+  console.log("Index", i, "Value", arr[i]);
+}
+```
+
+### Which loop should I choose?
+
+- Choose a **for-each loop** when you only need to read each value, such as printing values or finding the largest one.
+- Choose an **index-based loop** when you need the position, need to update an element, or need more control over how the loop moves.
+
+## 6. Print an Entire Array on One Line
+
+Some languages have a built-in shortcut to print an array. These examples use an array containing `1`, `2`, and `3`.
+
+### Python
+
+Print the list with brackets:
+
+```python
+print(arr)
+```
+
+Output:
+
+```text
+[1, 2, 3]
+```
+
+Print the values separated by spaces:
+
+```python
+print(*arr)
+```
+
+Output:
+
+```text
+1 2 3
+```
+
+### JavaScript
+
+Print the array:
+
+```javascript
+console.log(arr);
+```
+
+To choose the separator between values, use `join`:
+
+```javascript
+console.log(arr.join(" -> "));
+```
+
+Output:
+
+```text
+1 -> 2 -> 3
+```
+
+### Java
+
+Use `Arrays.toString`. Printing an array directly does not show its values.
+
+```java
+import java.util.Arrays;
+
+System.out.println(Arrays.toString(arr));
+```
+
+Output:
+
+```text
+[1, 2, 3]
+```
+
+### C++ (C++23)
+
+C++23 provides `std::println` to print standard containers such as `std::vector`:
+
+```cpp
+#include <print>
+#include <vector>
+
+std::vector<int> arr = {1, 2, 3};
+std::println("{}", arr);
+```
+
+Output:
+
+```text
+[1, 2, 3]
+```
+
+This requires a compiler and standard library that support C++23 printing and range formatting. With older C++ versions, use a loop to print the values.
+
+### C
+
+C does not have a built-in shortcut to print all array elements. Use a loop and the array length:
+
+```c
+#include <stdio.h>
+
+int arr[] = {1, 2, 3};
+int length = sizeof(arr) / sizeof(arr[0]);
+
+for (int i = 0; i < length; i++) {
+	printf("%d ", arr[i]);
+}
+printf("\n");
+```
+
+Output:
+
+```text
+1 2 3
+```
+
+### Quick summary
+
+| Language   | Shortcut                                   | Example output |
+| ---------- | ------------------------------------------ | -------------- |
+| Python     | `print(arr)`                               | `[1, 2, 3]`    |
+| JavaScript | `console.log(arr)`                         | `[1, 2, 3]`    |
+| Java       | `System.out.println(Arrays.toString(arr))` | `[1, 2, 3]`    |
+| C++23      | `std::println("{}", arr)`                  | `[1, 2, 3]`    |
+| C          | Use a loop                                 | `1 2 3`        |
+
+## 7. Quick Comparison
 
 | Feature               | C                            | C++                     | Java                             | Python                        | JavaScript                 |
 | --------------------- | ---------------------------- | ----------------------- | -------------------------------- | ----------------------------- | -------------------------- |
@@ -234,7 +470,7 @@ This creates:
 
 ---
 
-## 5. Key Takeaways
+## 8. Key Takeaways
 
 - C and Java arrays are usually fixed in size.
 - C++ adds modern containers like `std::array` and `std::vector`.

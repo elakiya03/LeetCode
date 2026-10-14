@@ -1,8 +1,3 @@
-/*
- * Program: Merge Two Sorted Arrays
- * Description: Reads two sorted arrays and merges them into a single sorted array. Prints the merged result.
- */
-
 #include <iostream>
 using namespace std;
 
@@ -38,8 +33,11 @@ void mergeTwoSortedArray(vector<int> &v1, vector<int> &v2)
 int main()
 {
     int c1;
+    cout << "Enter n1: ";
     cin >> c1;
+
     vector<int> v1;
+    cout << "Enter " << c1 << " values";
     for (int i = 0; i < c1; i++)
     {
         int x;
@@ -48,8 +46,10 @@ int main()
     }
 
     int c2;
+    cout << "Enter n2: ";
     cin >> c2;
     vector<int> v2;
+    cout << "Enter " << c2 << " values";
     for (int i = 0; i < c2; i++)
     {
         int x;
