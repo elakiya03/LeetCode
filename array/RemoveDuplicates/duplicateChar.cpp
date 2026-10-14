@@ -1,26 +1,34 @@
-/*
- * Program: Remove Consecutive Duplicates (C++)
- * Description: Reads a string and removes consecutive duplicate characters.
- */
-
 #include <iostream>
+#include <stack>
 using namespace std;
 
+// Function to remove adjacent duplicates using a stack
 string removeDuplicateChar(string str)
 {
-    string result;
+    string result = "";
+    stack<char> st;
+
     for (int i = 0; i < str.length(); i++)
     {
-        if (i == 0 || str[i] != str[i - 1])
+        // If stack is empty or current char is not equal to top of stack, push it
+        if (st.empty() || st.top() != str[i])
         {
-            result += str[i];
+            st.push(str[i]);
         }
+        // If current char is same as top of stack, skip adding it
+    }
+
+    while (!st.empty())
+    {
+        result = st.top() + result; // Insert at front to maintain order
+        st.pop();
     }
     return result;
 }
 int main()
 {
     string s;
+    cout << "Enter a string: ";
     getline(cin, s);
     cout << removeDuplicateChar(s) << endl;
 

@@ -1,8 +1,3 @@
-/*
- * Program: Remove Consecutive Duplicates
- * Description: Reads a string and removes consecutive duplicate characters.
- */
-
 #include <stdio.h>
 #include <string.h>
 
@@ -10,7 +5,7 @@ const char *removeDuplicateChar(char *str)
 {
     int length = strlen(str);
 
-    static char result[100]; //it is local variable. so static -> whole program
+    static char result[100]; // it is local variable. so static -> whole program
     int pos = 0;
 
     for (int i = 0; i < length; i++)
@@ -26,6 +21,7 @@ const char *removeDuplicateChar(char *str)
 int main()
 {
     char sentence[100];
+    printf("Enter a string: ");
     fgets(sentence, sizeof(sentence), stdin);
     // remove newline
     sentence[strcspn(sentence, "\n")] = '\0';
