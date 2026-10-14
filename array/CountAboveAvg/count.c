@@ -1,20 +1,16 @@
-/*
- * Program: Count Above Average
- * Description: Reads an integer n, followed by n integers. Calculates the average and counts how many numbers are above the average. Prints the count.
- */
-
 #include <stdio.h>
 
 int countingAboveAverage(int arr[], int n)
 {
     int count = 0;
-    int sum = 0;
+    double sum = 0;
 
     for (int i = 0; i < n; i++)
     {
         sum += arr[i];
     }
-    int avg = sum / n;
+    double avg = sum / n;
+    printf("Average: %lf", avg);
 
     for (int i = 0; i < n; i++)
     {
@@ -26,14 +22,15 @@ int countingAboveAverage(int arr[], int n)
 int main()
 {
     int n;
+    printf("Enter no of elements: ");
     scanf("%d", &n);
 
     int arr[n];
-
+    printf("\nEnter %d values\n", n);
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &arr[i]);
     }
 
-    printf("Above Average: %d\n", countingAboveAverage(arr, n));
+    printf("\nNo of elements Above Average: %d\n", countingAboveAverage(arr, n));
 }

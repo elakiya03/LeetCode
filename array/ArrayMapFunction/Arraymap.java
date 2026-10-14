@@ -25,5 +25,6 @@ public class Arraymap {
 
         doubleAll(arr);
         System.out.println("Result:" + Arrays.toString(arr));
+        sc.close();
     }
 }

@@ -1,2 +1,9 @@
 *.class
 .DS_Store
+
+# C/C++ build artifacts
+*.o
+*.obj
+*.out
+*.exe
+*.dSYM/
