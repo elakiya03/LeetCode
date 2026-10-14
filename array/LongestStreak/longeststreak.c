@@ -1,8 +1,3 @@
-/*
- * Program: Longest Streak
- * Description: Reads an integer n, followed by n integers. Finds the length of the longest consecutive streak of the same number and prints it.
- */
-
 #include <stdio.h>
 
 int longestStreak(int arr[], int n)
@@ -23,12 +18,16 @@ int longestStreak(int arr[], int n)
     }
     return maxstreak;
 }
+
 int main()
 {
     int n;
+    printf("Enter no of elements: ");
     scanf("%d", &n);
 
     int arr[n];
+    printf("Enter %i values\n", n);
+    
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &arr[i]);
