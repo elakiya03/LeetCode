@@ -1,8 +1,3 @@
-/*
- * Program: Largest in Array
- * Description: Reads an integer n, followed by n integers. Finds and prints the largest number in the array.
- */
-
 #include <stdio.h>
 
 int largestInArray(int arr[], int n)
@@ -22,9 +17,11 @@ int largestInArray(int arr[], int n)
 int main()
 {
     int n;
+    printf("Enter no of elements: ");
     scanf("%d", &n);
 
     int arr[n];
+    printf("Enter %d values\n", n);
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &arr[i]);
