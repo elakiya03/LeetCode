@@ -1,11 +1,7 @@
-/*
- * Program: Remove Duplicate Numbers
- * Description: Reads an integer n, followed by n integers. Removes duplicate numbers and prints each unique number only once.
- */
-
 #include <stdio.h>
 #define MAX_SIZE 100000
 
+// Frequency counting
 void removeDuplicateNumber(int arr[], int n)
 {
     int seen[MAX_SIZE] = {0};
@@ -23,9 +19,11 @@ void removeDuplicateNumber(int arr[], int n)
 int main()
 {
     int n;
+    printf("Enter no of elemets: ");
     scanf("%d", &n);
 
     int arr[n];
+    printf("Enter %d elements\n", n);
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &arr[i]);
