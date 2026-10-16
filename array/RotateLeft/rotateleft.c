@@ -1,8 +1,3 @@
-/*
- * Program: Rotate Array Left
- * Description: Reads an integer n, an array of n elements, and a rotation value k. Rotates the array left by k positions and prints the result.
- */
-
 #include <stdio.h>
 
 void reverse(int arr[], int start, int end)
@@ -18,6 +13,8 @@ void reverse(int arr[], int start, int end)
     }
 }
 
+// In a function parameter, int arr[] is treated as int *arr.
+// It points to the caller's first element, so edits change the original array.
 void rotateLeftByK(int arr[], int n, int k)
 {
 
@@ -31,22 +28,26 @@ void rotateLeftByK(int arr[], int n, int k)
 int main()
 {
     int n;
+    printf("Enter no of elements: ");
     scanf("%d", &n);
 
     int arr[n];
+    printf("Enter %d elements\n", n);
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &arr[i]);
     }
 
     int k;
+    printf("Enter k: ");
     scanf("%d", &k);
 
+    // When you call rotateLeftByK(arr, n, k), C passes a pointer to the first element of arr to the function. The function parameter int arr[] is treated as int *arr. So the function works on the original array, not a copy. arr is already converted to pointer when you pass it to a function.
     rotateLeftByK(arr, n, k);
 
     for (int i = 0; i < n; i++)
     {
-        printf("%d", arr[i]);
+        printf("%d ", arr[i]);
     }
 
     return 0;

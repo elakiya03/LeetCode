@@ -264,7 +264,71 @@ int length = sizeof(arr) / sizeof(arr[0]);
 
 **Important:** This calculation only works where `arr` is still an actual array. When a C array is passed to a function, it is treated like a pointer, so pass the length to the function separately.
 
-## 5. Loop Through an Array
+## 5. Passing an Array to a Function
+
+The rules differ by language. In each example, the function changes the first value. The caller can see that change when the language passes access to the same mutable array or list.
+
+### C
+
+```c
+void changeFirst(int arr[], int length) {
+	if (length > 0) {
+		arr[0] = 99;
+	}
+}
+
+changeFirst(arr, length);
+```
+
+In a function parameter, `int arr[]` means `int *arr`. The pointer refers to the caller's first element, so changing `arr[0]` changes the caller's array. The array length is not included; pass it separately.
+
+### C++
+
+```cpp
+void changeFirst(std::vector<int>& arr) {
+	if (!arr.empty()) {
+		arr[0] = 99;
+	}
+}
+```
+
+The `&` means `arr` is a reference to the caller's vector, so changes affect that vector. If the function parameter were `std::vector<int> arr` without `&`, it would receive a copy instead.
+
+### Java
+
+```java
+static void changeFirst(int[] arr) {
+	if (arr.length > 0) {
+		arr[0] = 99;
+	}
+}
+```
+
+Java passes a copy of the array reference. Both references still point to the same array object, so changing an element is visible to the caller. Assigning a different array to the parameter would not replace the caller's array.
+
+### Python
+
+```python
+def change_first(arr):
+	if arr:
+		arr[0] = 99
+```
+
+The parameter refers to the same list object passed by the caller. Changing a list element is visible to the caller. Reassigning `arr` inside the function does not reassign the caller's variable.
+
+#### JavaScript
+
+```javascript
+function changeFirst(arr) {
+  if (arr.length > 0) {
+    arr[0] = 99;
+  }
+}
+```
+
+The parameter receives a copy of the array reference. It still points to the same array, so changing an element is visible to the caller. Reassigning `arr` inside the function does not replace the caller's array.
+
+## 6. Loop Through an Array
 
 Use a loop to visit the array's elements one at a time.
 
@@ -358,7 +422,7 @@ for (let i = 0; i < arr.length; i++) {
 - Choose a **for-each loop** when you only need to read each value, such as printing values or finding the largest one.
 - Choose an **index-based loop** when you need the position, need to update an element, or need more control over how the loop moves.
 
-## 6. Print an Entire Array on One Line
+## 7. Print an Entire Array on One Line
 
 Some languages have a built-in shortcut to print an array. These examples use an array containing `1`, `2`, and `3`.
 
@@ -476,23 +540,72 @@ Output:
 | C++23      | `std::println("{}", arr)`                  | `[1, 2, 3]`    |
 | C          | Use a loop                                 | `1 2 3`        |
 
-## 7. Quick Comparison
-
-| Feature               | C                            | C++                     | Java                             | Python                        | JavaScript                 |
-| --------------------- | ---------------------------- | ----------------------- | -------------------------------- | ----------------------------- | -------------------------- |
-| Resizable             | No                           | Yes, with `std::vector` | No                               | Yes                           | Yes                        |
-| Mixed data types      | No                           | No                      | No                               | Yes                           | Yes                        |
-| Out-of-range behavior | Undefined / crash risk       | Undefined / crash risk  | `ArrayIndexOutOfBoundsException` | `IndexError`                  | Returns `undefined`        |
-| Typical usage         | Low-level systems / embedded | General-purpose / STL   | Object-oriented software         | Rapid development / scripting | Web and frontend scripting |
-
 ---
 
-## 8. Key Takeaways
+## 8. Get a Character from a String
 
-- C and Java arrays are usually fixed in size.
-- C++ adds modern containers like `std::array` and `std::vector`.
-- Python uses lists, which are flexible and easy to work with.
-- JavaScript arrays are also dynamic and can hold mixed data.
-- Always remember the language-specific rules before declaring arrays.
+String positions use zero-based indexing: the first character is at index `0`, the second is at index `1`, and so on.
 
----
+For the string `"Hello"`, index `1` contains `e`.
+
+### Python
+
+Use square brackets. Negative indexes count from the end, so `-1` means the last character.
+
+```python
+text = "Hello"
+character = text[1]   # 'e'
+last_character = text[-1]  # 'o'
+```
+
+### JavaScript
+
+Use square brackets or `.at()`. The `.at()` method accepts negative indexes.
+
+```javascript
+const text = "Hello";
+const character = text[1]; // 'e'
+const lastCharacter = text.at(-1); // 'o'
+```
+
+### Java
+
+Use `.charAt(index)`. Square brackets do not work on Java strings.
+
+```java
+String text = "Hello";
+char character = text.charAt(1); // 'e'
+```
+
+### C++
+
+For `std::string`, use square brackets or `.at()`. `.at()` checks the index and throws an exception if it is out of range; square brackets do not perform that check.
+
+```cpp
+#include <string>
+
+std::string text = "Hello";
+char character = text[1];       // 'e'
+char checkedCharacter = text.at(1); // 'e'
+```
+
+### C
+
+A C string is a character array ending with a special null character (`'\0'`). Access its characters with square brackets.
+
+```c
+char text[] = "Hello";
+char character = text[1]; // 'e'
+```
+
+### Quick comparison
+
+| Language   | How to get the character at index `i` | Negative index support                     |
+| ---------- | ------------------------------------- | ------------------------------------------ |
+| Python     | `text[i]`                             | Yes, such as `text[-1]`                    |
+| JavaScript | `text[i]` or `text.at(i)`             | `.at()` supports it, such as `text.at(-1)` |
+| Java       | `text.charAt(i)`                      | No                                         |
+| C++        | `text[i]` or `text.at(i)`             | No                                         |
+| C          | `text[i]`                             | No                                         |
+
+These examples use basic English letters. Some languages represent non-English characters using multiple bytes or code units, so one index does not always correspond to one visible character.

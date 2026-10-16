@@ -1,24 +1,18 @@
-/*
- * Program: Rotate Array Left
- * Description: Reads an integer n, an array of n elements, and a rotation value k. Rotates the array left by k positions and prints the result.
- */
-
 #include <iostream>
 using namespace std;
 
-vector<int> rotateLeftByK(vector<int> &v, int k)
+vector<int> rotateLeftByK(vector<int> v, int k)
 {
     int n = v.size();
     k = k % n;
 
     vector<int> temp;
-    int idx = 0;
 
-    // from k to n-1 elements
+    // from k to n - 1 elements
     for (int i = k; i < n; i++)
         temp.push_back(v[i]);
 
-    // from 0 to k elements
+    // from 0 to k - 1  elements
     for (int i = 0; i < k; i++)
         temp.push_back(v[i]);
 
@@ -27,17 +21,18 @@ vector<int> rotateLeftByK(vector<int> &v, int k)
 int main()
 {
     int n;
+    cout << "Enter no of elements: ";
     cin >> n;
 
-    vector<int> v;
+    vector<int> v(n);
+    cout << "Enter " << n << " elements" << endl;
     for (int i = 0; i < n; i++)
     {
-        int x;
-        cin >> x;
-        v.push_back(x);
+        cin >> v[i];
     }
 
     int k;
+    cout << "Enter k: ";
     cin >> k;
 
     v = rotateLeftByK(v, k);
