@@ -1,8 +1,3 @@
-/*
- * Program: Second Largest Finder
- * Description: Reads an integer n, followed by n integers. Finds and prints the second largest number in the array.
- */
-
 #include <stdio.h>
 
 int secondLargest(int arr[], int n)
@@ -28,9 +23,11 @@ int secondLargest(int arr[], int n)
 int main()
 {
     int n;
+    printf("Enter no of elements: ");
     scanf("%d", &n);
 
     int arr[n];
+    printf("Enter %d elements\n",n);
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &arr[i]);

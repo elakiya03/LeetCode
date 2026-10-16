@@ -1,8 +1,3 @@
-/*
- * Program: Second Largest Finder
- * Description: Reads an integer n, followed by n integers. Finds and prints the second largest number in the array.
- */
-
 #include <iostream>
 
 using namespace std;
@@ -28,9 +23,11 @@ int secondLargest(int arr[], int n)
 int main()
 {
     int n;
+    cout << "Enter no of elements: ";
     cin >> n;
 
     int arr[n];
+    cout << "Enter " << n << " elements";
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
