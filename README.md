@@ -34,9 +34,26 @@ Example access:
 printf("%d", numbers[2]); // prints 30
 ```
 
+### Quick Comparison
+
+| Feature               | C                            | C++                     | Java                             | Python                        | JavaScript                 |
+| --------------------- | ---------------------------- | ----------------------- | -------------------------------- | ----------------------------- | -------------------------- |
+| Resizable             | No                           | Yes, with `std::vector` | No                               | Yes                           | Yes                        |
+| Mixed data types      | No                           | No                      | No                               | Yes                           | Yes                        |
+| Out-of-range behavior | Undefined / crash risk       | Undefined / crash risk  | `ArrayIndexOutOfBoundsException` | `IndexError`                  | Returns `undefined`        |
+| Typical usage         | Low-level systems / embedded | General-purpose / STL   | Object-oriented software         | Rapid development / scripting | Web and frontend scripting |
+
+### Key Takeaways
+
+- C and Java arrays are usually fixed in size.
+- C++ adds modern containers like `std::array` and `std::vector`.
+- Python uses lists, which are flexible and easy to work with.
+- JavaScript arrays are also dynamic and can hold mixed data.
+- Always remember the language-specific rules before declaring arrays.
+
 ---
 
-## 3. Arrays in Different Languages
+## 3. Array Declarations in Different Languages
 
 ### 3.1 C
 
@@ -223,7 +240,7 @@ This creates:
 
 ---
 
-## 4. Find the Number of Elements
+## 4. Find Array Length
 
 The number of elements is the array's length. The syntax depends on the language and the kind of array.
 
