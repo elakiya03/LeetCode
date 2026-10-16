@@ -1,8 +1,3 @@
-/*
- * Program: Running Sum Calculator
- * Description: Reads an integer n, followed by n integers. Computes the running sum and prints each cumulative sum.
- */
-
 #include <stdio.h>
 
 void runningSum(int arr[], int n)
@@ -19,13 +14,17 @@ void runningSum(int arr[], int n)
 int main()
 {
     int n;
+    printf("Enter no of elements: ");
     scanf("%d", &n);
 
     int arr[n];
+    printf("Enter %d values:\n", n);
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &arr[i]);
     }
+    printf("Running sum: ");
     runningSum(arr, n);
+    printf("\n");
     return 0;
 }
