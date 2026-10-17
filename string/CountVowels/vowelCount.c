@@ -1,8 +1,3 @@
-/*
- * Program: Vowel Counter
- * Description: Reads a string and counts the number of vowels in it.
- */
-
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
@@ -12,7 +7,7 @@ int countVowels(char *s)
     // int length = sizeof(s) / sizeof(s[0]);
     int l = strlen(s);
 
-    for (int i = 0; s[i] != '\0'; i++)
+    for (int i = 0; s[i]; i++)
     {
         char c = tolower(s[i]);
 
@@ -26,9 +21,10 @@ int countVowels(char *s)
 int main()
 {
     char str[100];
+    printf("Enter a sentence: ");
     fgets(str, sizeof(str), stdin);
     // remove newline
     str[strcspn(str, "\n")] = '\0';
-    printf("%d\n", countVowels(str));
+    printf("Vowels Count: %d\n", countVowels(str));
     return 0;
 }
