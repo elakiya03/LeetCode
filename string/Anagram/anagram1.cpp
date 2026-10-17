@@ -1,11 +1,7 @@
-/*
- * Program: Anagram Checker
- * Description: Reads two strings and checks if they are anagrams. Prints "Yes" if they are, "No" otherwise.
- */
-
 #include <iostream>
 using namespace std;
 
+// Frequency Counting
 string isAnagram(string s1, string s2)
 {
     if (s1.length() != s2.length())
@@ -30,9 +26,10 @@ string isAnagram(string s1, string s2)
 int main()
 {
     string word1, word2;
+    printf("Enter a String 1: ");
     getline(cin, word1);
+    printf("Enter a String 2: ");
     getline(cin, word2);
-
     cout << isAnagram(word1, word2) << endl;
     return 0;
 }

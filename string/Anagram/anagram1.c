@@ -1,8 +1,3 @@
-/*
- * Program: Anagram Checker
- * Description: Reads two strings and checks if they are anagrams. Prints "Yes" if they are, "No" otherwise.
- */
-
 #include <stdio.h>
 #include <string.h>
 
@@ -30,7 +25,9 @@ const char *isAnagram(char s1[], char s2[])
 int main()
 {
     char word1[100], word2[100];
+    printf("Enter a String 1: ");
     fgets(word1, sizeof(word1), stdin);
+    printf("Enter a String 2: ");
     fgets(word2, sizeof(word2), stdin);
     printf("%s\n", isAnagram(word1, word2));
     return 0;

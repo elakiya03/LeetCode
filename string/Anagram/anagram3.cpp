@@ -1,16 +1,12 @@
-/*
- * Program: Anagram Checker (Map Method)
- * Description: Reads two strings and uses a map to check if they are anagrams. Prints "Yes" if they are, "No" otherwise.
- */
-
 #include <iostream>
 #include <map>
 using namespace std;
 
-string isAnagram(string s1, string s2)
+// Hashing
+bool isAnagram(string s1, string s2)
 {
     if (s1.length() != s2.length())
-        return "No";
+        return false;
 
     map<char, int> m;
 
@@ -23,17 +19,19 @@ string isAnagram(string s1, string s2)
     for (auto x : m)
     {
         if (x.second != 0)
-            return "No";
+            return false;
     }
-    return "Yes";
+    return true;
 }
 
 int main()
 {
     string word1, word2;
+    printf("Enter a String 1: ");
     getline(cin, word1);
+    printf("Enter a String 1: ");
     getline(cin, word2);
 
-    cout << isAnagram(word1, word2) << endl;
+    cout << (isAnagram(word1, word2) ? "Yes" : "No") << endl;
     return 0;
 }
