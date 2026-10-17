@@ -1,5 +1,20 @@
 # Program Notes
 
+## Contents
+
+- [File Naming Conventions](#1-file-naming-conventions)
+- [What Is an Array?](#2-what-is-an-array)
+- [Array Declarations in Different Languages](#3-array-declarations-in-different-languages)
+- [Find Array Length](#4-find-array-length)
+- [Passing an Array to a Function](#5-passing-an-array-to-a-function)
+- [Loop Through an Array](#6-loop-through-an-array)
+- [Print an Entire Array on One Line](#7-print-an-entire-array-on-one-line)
+- [Find the Smallest and Largest Values and Their Indexes](#8-find-the-smallest-and-largest-values-and-their-indexes)
+- [Get a Character from a String](#9-get-a-character-from-a-string)
+- [Find String Length](#10-find-string-length)
+- [Common Data Structures](#11-common-data-structures)
+- [Function Return Types](#12-function-return-types)
+
 ## 1. File Naming Conventions
 
 Use consistent naming so your files are easy to recognize and organize.
@@ -542,7 +557,109 @@ Output:
 
 ---
 
-## 8. Get a Character from a String
+## 8. Find the Smallest and Largest Values and Their Indexes
+
+### Python
+
+Use `min` and `max` to get the values. The `index` method finds the first position of each value.
+
+```python
+arr = [8, 3, 5, 3, 9]
+
+smallest = min(arr)
+largest = max(arr)
+smallest_index = arr.index(smallest)
+largest_index = arr.index(largest)
+```
+
+### JavaScript
+
+`Math.min` and `Math.max` find the values. The spread operator (`...`) passes the array values to these functions. `indexOf` finds the first position.
+
+```javascript
+const arr = [8, 3, 5, 3, 9];
+
+const smallest = Math.min(...arr);
+const largest = Math.max(...arr);
+const smallestIndex = arr.indexOf(smallest);
+const largestIndex = arr.indexOf(largest);
+```
+
+### Java
+
+Streams can find the values. A loop finds the indexes; strict comparisons keep the first index when values repeat.
+
+```java
+import java.util.Arrays;
+
+int[] arr = {8, 3, 5, 3, 9};
+int smallest = Arrays.stream(arr).min().getAsInt();
+int largest = Arrays.stream(arr).max().getAsInt();
+int smallestIndex = 0;
+int largestIndex = 0;
+
+for (int i = 1; i < arr.length; i++) {
+	if (arr[i] < arr[smallestIndex]) {
+		smallestIndex = i;
+	}
+	if (arr[i] > arr[largestIndex]) {
+		largestIndex = i;
+	}
+}
+```
+
+### C++
+
+`std::min_element` and `std::max_element` return iterators to the first matching values. `std::distance` converts each iterator to an index.
+
+```cpp
+#include <algorithm>
+#include <iterator>
+#include <vector>
+
+std::vector<int> arr = {8, 3, 5, 3, 9};
+auto smallestIt = std::min_element(arr.begin(), arr.end());
+auto largestIt = std::max_element(arr.begin(), arr.end());
+
+int smallest = *smallestIt;
+int largest = *largestIt;
+auto smallestIndex = std::distance(arr.begin(), smallestIt);
+auto largestIndex = std::distance(arr.begin(), largestIt);
+```
+
+For a C-style array, use `std::min_element(arr, arr + size)` and `std::max_element(arr, arr + size)` instead.
+
+### C
+
+C has no built-in minimum or maximum function for arrays. Start both indexes at `0`, then check every remaining value.
+
+```c
+int arr[] = {8, 3, 5, 3, 9};
+int size = sizeof(arr) / sizeof(arr[0]);
+int smallestIndex = 0;
+int largestIndex = 0;
+
+for (int i = 1; i < size; i++) {
+	if (arr[i] < arr[smallestIndex]) {
+		smallestIndex = i;
+	}
+	if (arr[i] > arr[largestIndex]) {
+		largestIndex = i;
+	}
+}
+
+int smallest = arr[smallestIndex];
+int largest = arr[largestIndex];
+```
+
+### Results for the example
+
+| Result   | Value | Index |
+| -------- | ----: | ----: |
+| Smallest |   `3` |   `1` |
+| Largest  |   `9` |   `4` |
+
+## 9. Get a Character from a String
 
 String positions use zero-based indexing: the first character is at index `0`, the second is at index `1`, and so on.
 
@@ -608,4 +725,317 @@ char character = text[1]; // 'e'
 | C++        | `text[i]` or `text.at(i)`             | No                                         |
 | C          | `text[i]`                             | No                                         |
 
-These examples use basic English letters. Some languages represent non-English characters using multiple bytes or code units, so one index does not always correspond to one visible character.
+## 10. Find String Length
+
+For the basic text `"Hello"`, each language reports a length of `5`. The syntax differs:
+
+### Python
+
+Use the built-in `len()` function:
+
+```python
+length = len(text)
+```
+
+### JavaScript
+
+Use the `.length` property. It does not use parentheses:
+
+```javascript
+const length = text.length;
+```
+
+### Java
+
+Use the `.length()` method. This is different from a Java array, which uses `.length` without parentheses:
+
+```java
+int length = text.length();
+```
+
+### C++
+
+For a `std::string`, `.length()` and `.size()` return the same result:
+
+```cpp
+#include <string>
+
+std::string text = "Hello";
+auto length = text.length();
+// text.size() works the same way.
+```
+
+### C
+
+Use `strlen()` from `<string.h>`. It counts bytes until the string's null terminator (`'\0'`):
+
+```c
+#include <string.h>
+
+char text[] = "Hello";
+size_t length = strlen(text);
+```
+
+### Quick comparison
+
+| Language          | Syntax                           | What the length counts                               |
+| ----------------- | -------------------------------- | ---------------------------------------------------- |
+| Python            | `len(text)`                      | Unicode code points                                  |
+| JavaScript        | `text.length`                    | UTF-16 code units                                    |
+| Java              | `text.length()`                  | UTF-16 code units                                    |
+| C++ `std::string` | `text.length()` or `text.size()` | `char` units; UTF-8 text is usually counted as bytes |
+| C                 | `strlen(text)`                   | Bytes before the null terminator                     |
+
+## 11. Common Data Structures
+
+### C++
+
+- `std::array`: A fixed-size sequence whose size is known at compile time. Use it when the number of elements will not change.
+- `std::vector`: A resizable sequence with fast access by index. Use it when the number of elements may change. Choose `std::vector` over `std::array` when you need to add or remove elements.
+- `std::list`: A doubly linked list. Use it when you often insert or remove items through an iterator; it does not support fast access by index.
+- `std::stack`: A last-in, first-out (LIFO) structure. Use it when the newest item should be handled first.
+- `std::queue`: A first-in, first-out (FIFO) structure. Use it when the oldest item should be handled first.
+- `std::map`: Stores key-value pairs ordered by key. Use it when you need keys kept sorted.
+- `std::unordered_map`: Stores key-value pairs in a hash table. Use it for fast average key lookup when sorted order is not needed.
+- `std::set`: Stores unique values ordered by value. Use it when values must be unique and sorted.
+- `std::unordered_set`: Stores unique values in a hash table. Use it when you need uniqueness and fast average lookup, but not sorted order.
+- `std::priority_queue`: A heap; by default, the largest value is available first. Use it when you repeatedly need the highest-priority value.
+
+### Java
+
+- Built-in array (such as `int[]`): A fixed-size sequence. Use it when the number of elements will not change.
+- `List` interface: Describes an ordered collection that can contain duplicates. Use it as a variable or parameter type when you do not need to depend on one specific list implementation.
+- `ArrayList`: A resizable array. Use it for most lists, especially when you access items by index.
+- `Vector`: A resizable array with synchronized methods. It is a legacy class; use `ArrayList` for most new code unless an older API requires `Vector`.
+- `LinkedList`: A linked list that implements queue and deque interfaces. Use it when you specifically need those operations; `ArrayDeque` is often a better choice for a typical stack or queue.
+- `Queue` interface: Describes queue behavior. Use an implementation such as `ArrayDeque` for first-in, first-out (FIFO) behavior or `PriorityQueue` for priority-based behavior.
+- `Deque` interface: Describes a queue that allows adding and removing items at both ends. `ArrayDeque` is a common implementation and can also be used as a stack.
+- `Stack`: A legacy last-in, first-out (LIFO) class. Prefer `ArrayDeque` for new code.
+- `Map` interface: Describes key-value storage. Use it as a variable or parameter type when you do not need to depend on a specific map implementation.
+- `HashMap`: Stores key-value pairs for fast average lookup when key order does not matter.
+- `TreeMap`: Stores key-value pairs sorted by key. Use it when you need ordered keys.
+- `Hashtable`: A legacy synchronized key-value map. Prefer `HashMap` for ordinary new code.
+- `Set` interface: Describes a collection that stores unique values. Use it as a variable or parameter type when you do not need to depend on a specific set implementation.
+- `HashSet`: Stores unique values for fast average membership checks.
+- `TreeSet`: Stores unique values in sorted order.
+- `PriorityQueue`: A heap; by default, the smallest value is available first. Use it when you repeatedly need the next smallest value.
+
+### Python
+
+- `list`: A resizable sequence with access by index. It can also work as a stack using `append()` and `pop()`.
+- `dict`: Stores key-value pairs and preserves insertion order. Use it for looking up a value by key.
+- `set`: Stores unique values. Use it to remove duplicates or check whether a value is present.
+- `heapq`: A module that provides a min-heap. Use it when you repeatedly need the smallest value.
+- `collections.deque`: A double-ended queue. Use it for efficient additions and removals at either end, including ordinary queue behavior with `append()` and `popleft()`.
+- Python has no built-in general-purpose linked-list class; use `list` or `deque` for most sequence needs.
+
+### JavaScript
+
+- `Array`: A resizable sequence with access by index. It can also work as a stack with `push()` and `pop()`.
+- `Map`: Stores key-value pairs. Use it when keys can be any value or when you want map-specific operations.
+- `Set`: Stores unique values. Use it to remove duplicates or check membership.
+- JavaScript has no built-in linked-list or priority-queue class. Use an array for simple cases or a suitable library when those structures are needed.
+
+### Choosing a Structure
+
+- Know the size in advance and will it stay fixed? Use C++ `std::array` or a Java array.
+- Need the sequence to grow or shrink? Use C++ `std::vector`, Java `ArrayList`, Python `list`, or JavaScript `Array`.
+- Need an ordered sequence and index access? Use `std::vector`, Java `ArrayList`, Python `list`, or JavaScript `Array`.
+- Need last-in, first-out behavior? Use a stack, such as C++ `std::stack`, Java `ArrayDeque`, Python `list`, or JavaScript `Array`.
+- Need first-in, first-out behavior? Use C++ `std::queue`, Java `ArrayDeque`, or Python `collections.deque`. JavaScript arrays can do this with `push()` and `shift()`, but `shift()` can be slow for large arrays.
+- Need key-value lookup? Use a map or dictionary. Choose an ordered map when keys must stay sorted; choose a hash-based map when order is not needed.
+- Need unique values? Use a set. Choose an ordered set if the values must stay sorted.
+- Need to repeatedly get the next highest- or lowest-priority item? Use a priority queue or heap.
+
+## 12. Function Return Types
+
+A function's return type describes the value it gives back when it finishes. In Java, functions inside a class are called methods.
+
+### C
+
+C requires a return type before the function name. It has no built-in string or resizable array type.
+
+```c
+#include <stdbool.h>
+#include <stddef.h>
+
+int get_number(void) {
+	return 42;
+}
+
+const char *get_text(void) {
+	return "Hello";
+}
+
+bool get_flag(void) {
+	return true;
+}
+
+char get_letter(void) {
+	return 'A';
+}
+```
+
+To return an array, return a pointer to its first element. The example uses `static` so the array remains valid after the function returns. The caller also needs the array length separately.
+
+```c
+int *get_numbers(size_t *length) {
+	static int numbers[] = {1, 2, 3};
+	*length = sizeof(numbers) / sizeof(numbers[0]);
+	return numbers;
+}
+```
+
+For an array of strings, return a pointer to the first string pointer:
+
+```c
+const char **get_words(size_t *length) {
+	static const char *words[] = {"apple", "banana"};
+	*length = sizeof(words) / sizeof(words[0]);
+	return words;
+}
+
+char *get_letters(size_t *length) {
+	static char letters[] = {'X', 'Y', 'Z'};
+	*length = sizeof(letters) / sizeof(letters[0]);
+	return letters;
+}
+```
+
+### C++
+
+C++ uses `std::string` for text and `std::vector` for a resizable list. Returning these by value is the usual approach.
+
+```cpp
+#include <string>
+#include <vector>
+
+int getNumber() {
+	return 42;
+}
+
+std::string getText() {
+	return "Hello";
+}
+
+bool getFlag() {
+	return true;
+}
+
+char getLetter() {
+	return 'A';
+}
+
+std::vector<int> getNumbers() {
+	return {1, 2, 3};
+}
+
+std::vector<std::string> getWords() {
+	return {"apple", "banana"};
+}
+
+std::vector<char> getLetters() {
+	return {'X', 'Y', 'Z'};
+}
+```
+
+### Java
+
+Java methods must be declared inside a class. The examples below show their return types and method bodies.
+
+```java
+class Example {
+	int getNumber() {
+		return 42;
+	}
+
+	String getText() {
+		return "Hello";
+	}
+
+	boolean getFlag() {
+		return true;
+	}
+
+	char getLetter() {
+		return 'A';
+	}
+
+	int[] getNumbers() {
+		return new int[]{1, 2, 3};
+	}
+
+	String[] getWords() {
+		return new String[]{"apple", "banana"};
+	}
+
+	char[] getLetters() {
+		return new char[]{'X', 'Y', 'Z'};
+	}
+}
+```
+
+### Python
+
+Python does not enforce type hints at runtime. Hints document the expected return type and help editors and type checkers.
+
+```python
+def get_number() -> int:
+	return 42
+
+def get_text() -> str:
+	return "Hello"
+
+def get_flag() -> bool:
+	return True
+
+def get_letter() -> str:
+	return "A"
+
+def get_numbers() -> list[int]:
+	return [1, 2, 3]
+
+def get_words() -> list[str]:
+	return ["apple", "banana"]
+
+def get_letters() -> list[str]:
+	return ["X", "Y", "Z"]
+```
+
+Python has no separate `char` type. A one-character value is a string (`str`).
+
+### JavaScript
+
+JavaScript does not declare a function's return type. The returned value determines its type when the function runs.
+
+```javascript
+function getNumber() {
+  return 42;
+}
+
+function getText() {
+  return "Hello";
+}
+
+function getFlag() {
+  return true;
+}
+
+function getLetter() {
+  return "A";
+}
+
+function getNumbers() {
+  return [1, 2, 3];
+}
+
+function getWords() {
+  return ["apple", "banana"];
+}
+
+function getLetters() {
+  return ["X", "Y", "Z"];
+}
+```
+
+JavaScript has no separate `char` type; a single character is a string. TypeScript adds optional type declarations, for example: `function getNumber(): number { return 42; }`.
