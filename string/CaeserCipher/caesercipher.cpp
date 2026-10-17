@@ -1,59 +1,58 @@
-/*
- * Program: Caesar Cipher Encryptor
- * Description: Reads a string and a shift value, encrypts the string using Caesar cipher, and prints the encrypted text.
- */
-
 #include <iostream>
 using namespace std;
 
-string encryption(string s, int n)
+string encryption(string str, int n)
 {
-    for (int i = 0; i < s.length(); i++)
+    string result = "";
+
+    for (int i = 0; i < str.length(); i++)
     {
-        char c = tolower((s.at(i) - 'a' + n) % 26 + 'a');
+        char c = tolower(str[i]);
+
         if (c >= 'a' && c <= 'z')
-            s.at(i) = c;
+        {
+            c = (char)((c - 'a' + n) % 26 + 'a');
+            result += c;
+        }
     }
-    return s;
+
+    return result;
 }
+
 int main()
 {
     string text;
+    cout << "Enter a string: ";
     getline(cin, text);
 
     int shift;
+    cout << "Enter shift value: ";
     cin >> shift;
 
-    cout << encryption(text, shift);
+    cout << encryption(text, shift) << endl;
     return 0;
 }
+
 /*
-
-'a'=0
-'b'=1
+'a' = 0
+'b' = 1
 ...
-'z'=25
+'z' = 25
 
-1. convert letter to number
-s[i]-'a'
+1. Convert letter to number
+   c - 'a'
 
-2. add shift
-s[i]-'a' + shift
+2. Add shift
+   (c - 'a') + n
 
-3. wrap using %26
-(c - 'a' + shift) % 26
+3. Wrap around using % 26
+   ((c - 'a') + n) % 26
 
-'z' → 25
-shift = 3
-25 + 3 = 28
-28 % 26 = 2
+4. Convert back to letter
+   + 'a'
 
-4. convert back to letter
-+ 'a'
-
-
-Eg:
-c + 3
+Example:
+"c" with shift 3
 
 Step 1: 'c' - 'a' = 2
 Step 2: 2 + 3 = 5
