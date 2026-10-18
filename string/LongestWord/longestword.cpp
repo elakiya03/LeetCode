@@ -1,8 +1,3 @@
-/*
- * Program: Longest Word Finder
- * Description: Reads a line of text and finds the longest word in it.
- */
-
 #include <iostream>
 #include <sstream>
 using namespace std;
@@ -25,6 +20,7 @@ string longestWord(string str)
 int main()
 {
     string t;
+    cout << "Enter a sentences: ";
     getline(cin, t);
     cout << longestWord(t);
 
