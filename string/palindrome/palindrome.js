@@ -1,10 +1,18 @@
-const reverseStr = (s) => {
-    let rev = s.split('').reverse().join('')
-    return rev == s
-}
+const readline = require("readline");
 
-let s1 = "madam"
-console.log(reverseStr(s1) ? "Yes, Palindrome" : "No, its not")
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
-let s2 = "silent"
-console.log(reverseStr(s2) ? "Yes, Palindrome" : "No, its not")
+const isPalindrome = (s) => {
+  let rev = s.split("").reverse().join(""); // Split the string into Character
+  return rev === s;
+};
+
+rl.question("Enter a word: ", (word) => {
+  console.log(
+    isPalindrome(word.toLowerCase()) ? "Yes, Palindrome" : "No, its not",
+  );
+  rl.close();
+});
