@@ -1,6 +1,7 @@
-#include <stdio.h>
+#include <iostream>
 
-int secondLargest(int arr[], int n)
+using namespace std;
+int second_largest(int arr[], int n)
 {
     int max = arr[0];
     int sec = arr[0];
@@ -19,19 +20,20 @@ int secondLargest(int arr[], int n)
     }
     return sec;
 }
-
 int main()
 {
     int n;
-    printf("Enter no of elements: ");
-    scanf("%d", &n);
+    cout << "Enter no of elements: ";
+    cin >> n;
 
     int arr[n];
-    printf("Enter %d elements\n",n);
+    cout << "Enter " << n << " elements";
     for (int i = 0; i < n; i++)
     {
-        scanf("%d", &arr[i]);
+        cin >> arr[i];
     }
-    printf("Second Largest: %d\n", secondLargest(arr, n));
+
+    cout << "Second Largest: " << second_largest(arr, n) << endl;
+
     return 0;
 }

@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int longestStreak(vector<int> &num)
+int longest_streak(vector<int> &num)
 {
     int maxstreak = 1;
     int streak = 1;
@@ -35,6 +35,6 @@ int main()
         cin >> x;
         v.push_back(x);
     }
-    cout << "Longest streak: " << longestStreak(v) << endl;
+    cout << "Longest streak: " << longest_streak(v) << endl;
     return 0;
 }

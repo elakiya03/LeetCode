@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 // Function to double each element of the array
-void doubleAll(int arr[], int n)
+void double_all(int arr[], int n)
 {
     // NOTE:
     // arr[] is actually a POINTER (int* arr)
@@ -33,7 +33,7 @@ int main()
 
     // Passing array to function
     // Actually passes address of arr[0]
-    doubleAll(arr, n);
+    double_all(arr, n);
 
     // Printing updated array
     // Values are changed because we modified original memory

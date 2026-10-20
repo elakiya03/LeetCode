@@ -1,4 +1,4 @@
-def revesearrayusingtwopointer(arr):  # two pointer
+def revese_array_using_two_pointer(arr):  # two pointer
     left = 0
     right = len(arr) - 1
     while left < right:
@@ -8,14 +8,14 @@ def revesearrayusingtwopointer(arr):  # two pointer
     print(arr)
 
 
-def reversearrayusingsingle(arr):  # single pointer
+def reverse_array_using_single(arr):  # single pointer
     n = len(arr)
     for i in range(len(arr) // 2):
         arr[i], arr[n - i - 1] = arr[n - i - 1], arr[i]
     print(arr)
 
 
-def reversearray(arr):  # inbuilt
+def reverse_array(arr):  # inbuilt
     arr.reverse()
     print(arr)
 
@@ -27,6 +27,6 @@ if __name__ == "__main__":
     for i in range(n):
         arr.append(int(input()))
 
-    revesearrayusingtwopointer(arr.copy())
-    reversearrayusingsingle(arr.copy())
-    reversearray(arr.copy())
+    revese_array_using_two_pointer(arr.copy())
+    reverse_array_using_single(arr.copy())
+    reverse_array(arr.copy())

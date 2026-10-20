@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void runningSum(int arr[], int n)
+void running_sum(int arr[], int n)
 {
     int sum = 0;
 
@@ -24,7 +24,7 @@ int main()
         scanf("%d", &arr[i]);
     }
     printf("Running sum: ");
-    runningSum(arr, n);
+    running_sum(arr, n);
     printf("\n");
     return 0;
 }

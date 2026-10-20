@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void runningSum(vector<int> &num)
+void running_sum(vector<int> &num)
 {
     int sum = 0;
 
@@ -29,7 +29,7 @@ int main()
         v.push_back(x);
     }
     cout << "Running sum: ";
-    runningSum(v);
+    running_sum(v);
     cout << endl;
     return 0;
 }

@@ -1,10 +1,12 @@
+package array.countaboveavg;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Count {
 
     static int countingAboveAverage(int[] arr) {
-        //Streams
+        // Streams
         double avg = Arrays.stream(arr).average().orElse(0);
         int count = 0;
 

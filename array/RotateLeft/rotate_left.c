@@ -15,7 +15,7 @@ void reverse(int arr[], int start, int end)
 
 // In a function parameter, int arr[] is treated as int *arr.
 // It points to the caller's first element, so edits change the original array.
-void rotateLeftByK(int arr[], int n, int k)
+void rotate_left_by_k(int arr[], int n, int k)
 {
 
     k %= n;
@@ -43,7 +43,7 @@ int main()
     scanf("%d", &k);
 
     // When you call rotateLeftByK(arr, n, k), C passes a pointer to the first element of arr to the function. The function parameter int arr[] is treated as int *arr. So the function works on the original array, not a copy. arr is already converted to pointer when you pass it to a function.
-    rotateLeftByK(arr, n, k);
+    rotate_left_by_k(arr, n, k);
 
     for (int i = 0; i < n; i++)
     {

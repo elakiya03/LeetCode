@@ -2,7 +2,7 @@
 #define MAX_SIZE 100000
 
 // Frequency counting
-void removeDuplicateNumber(int arr[], int n)
+void remove_duplicate_number(int arr[], int n)
 {
     int seen[MAX_SIZE] = {0};
 
@@ -29,6 +29,6 @@ int main()
         scanf("%d", &arr[i]);
     }
 
-    removeDuplicateNumber(arr, n);
+    remove_duplicate_number(arr, n);
     return 0;
 }

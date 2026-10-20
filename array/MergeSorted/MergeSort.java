@@ -1,3 +1,4 @@
+package array.mergesorted;
 
 import java.util.*;
 
@@ -27,7 +28,7 @@ public class MergeSort {
         }
 
         // for (int value : temp) {
-        //     System.out.print(value + " ");
+        // System.out.print(value + " ");
         // }
         System.out.println(Arrays.toString(temp));
     }

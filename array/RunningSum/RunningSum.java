@@ -1,3 +1,5 @@
+package array.runningsum;
+
 import java.util.Scanner;
 
 public class RunningSum {

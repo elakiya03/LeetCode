@@ -1,4 +1,4 @@
-def mergeSort(arr1, arr2):
+def merge_two_sorted_array(arr1, arr2):
     n1 = len(arr1)
     n2 = len(arr2)
     i = j = k = 0
@@ -42,4 +42,4 @@ if __name__ == "__main__":
     for i in range(n1):
         arr2.append(int(input()))
 
-    mergeSort(arr1, arr2)
+    merge_two_sorted_array(arr1, arr2)

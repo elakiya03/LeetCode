@@ -1,3 +1,4 @@
+package string.longestword;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -5,7 +6,7 @@ import java.util.Scanner;
 
 public class LongestWord {
 
-    //1. Split Method
+    // 1. Split Method
     static String longestWord(String sentence) {
         String[] words = sentence.split(" ");
         String word = "";
@@ -18,7 +19,7 @@ public class LongestWord {
         return word;
     }
 
-    //2. Streams
+    // 2. Streams
     static String longestWordUsingStreams(String sentence) {
         String[] words = sentence.split(" ");
         String word = Arrays.stream(words).max(Comparator.comparingInt(String::length)).orElse(null);

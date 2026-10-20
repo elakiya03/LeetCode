@@ -2,7 +2,7 @@
 #include <sstream>
 using namespace std;
 
-string longestWord(string str)
+string longest_word(string str)
 {
     stringstream ss(str);
 
@@ -22,7 +22,7 @@ int main()
     string t;
     cout << "Enter a sentences: ";
     getline(cin, t);
-    cout << longestWord(t);
+    cout << longest_word(t);
 
     return 0;
 }

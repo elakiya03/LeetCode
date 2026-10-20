@@ -1,4 +1,4 @@
-def vowel_count(sentence: str):
+def vowels_count(sentence: str):
     count = 0
     for ch in sentence:
         ch = ch.lower()
@@ -9,4 +9,4 @@ def vowel_count(sentence: str):
 
 if __name__ == "__main__":
     sentence = input("Enter a sentence: ")
-    print("Vowels Count: ", vowel_count(sentence))
+    print("Vowels Count: ", vowels_count(sentence))

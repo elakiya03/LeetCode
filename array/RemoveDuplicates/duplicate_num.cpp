@@ -6,7 +6,7 @@
 using namespace std;
 
 // Hashing set Approach - preserve the order
-void removeDuplicateNumber(vector<int> &v)
+void remove_duplicate_number(vector<int> &v)
 {
 
     unordered_set<int> seen;
@@ -20,7 +20,7 @@ void removeDuplicateNumber(vector<int> &v)
 }
 
 // Hashing map Approach - This appraoch may not preserve the order
-void removeDuplicateNumberUsingHashMap(vector<int> &v)
+void remove_duplicate_number_using_hashmap(vector<int> &v)
 {
     unordered_map<int, int> m;
 
@@ -51,7 +51,7 @@ int main()
         cin >> x;
     }
 
-    removeDuplicateNumber(v);
-    removeDuplicateNumberUsingHashMap(v);
+    remove_duplicate_number(v);
+    remove_duplicate_number_using_hashmap(v);
     return 0;
 }

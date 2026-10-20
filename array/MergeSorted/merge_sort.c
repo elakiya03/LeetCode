@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void mergeTwoSortedArray(int arr1[], int arr2[], int n1, int n2)
+void merge_two_sorted_array(int arr1[], int arr2[], int n1, int n2)
 {
 
     int temp[n1 + n2];
@@ -46,5 +46,6 @@ int main()
     for (int i = 0; i < n2; i++)
         scanf("%d", &arr2[i]);
 
-    mergeTwoSortedArray(arr1, arr2, n1, n2);
+    merge_two_sorted_array(arr1, arr2, n1, n2);
+    return 0;
 }

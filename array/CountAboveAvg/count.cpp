@@ -2,7 +2,7 @@
 #include <numeric>
 using namespace std;
 
-int countingAboveAverage(vector<int> &num)
+int counting_above_average(vector<int> &num)
 {
     int count = 0;
 
@@ -33,5 +33,5 @@ int main()
         v.push_back(x);
     }
 
-    cout << "Above Average: " << countingAboveAverage(v) << endl;
+    cout << "Above Average: " << counting_above_average(v) << endl;
 }

@@ -1,7 +1,7 @@
 import statistics
 
 
-def countingAboveAverage(arr):
+def counting_above_average(arr):
     avg = statistics.mean(arr)
     print("Average: ", avg)
 
@@ -14,10 +14,10 @@ def countingAboveAverage(arr):
 
 if __name__ == "__main__":
     n = int(input("Enter no of elements: "))
-    arr = [] # Empty List
+    arr = []  # Empty List
     print("Enter Value")
 
     for i in range(n):
         arr.append(int(input()))
 
-    print("Result:", countingAboveAverage(arr))
+    print("Result:", counting_above_average(arr))

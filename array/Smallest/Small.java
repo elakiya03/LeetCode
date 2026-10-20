@@ -1,4 +1,4 @@
-package Array.Smallest;
+package array.smallest;
 
 import java.util.Scanner;
 

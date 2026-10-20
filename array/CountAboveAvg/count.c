@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int countingAboveAverage(int arr[], int n)
+int counting_above_average(int arr[], int n)
 {
     int count = 0;
     double sum = 0;
@@ -32,5 +32,5 @@ int main()
         scanf("%d", &arr[i]);
     }
 
-    printf("\nNo of elements Above Average: %d\n", countingAboveAverage(arr, n));
+    printf("\nNo of elements Above Average: %d\n", counting_above_average(arr, n));
 }

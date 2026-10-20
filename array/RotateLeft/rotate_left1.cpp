@@ -11,7 +11,7 @@ void reverse(vector<int> &v, int left, int right)
     }
 }
 
-void rotateLeftByK(vector<int> &v, int k)
+void rotate_left_by_k(vector<int> &v, int k)
 {
     int n = v.size();
 
@@ -43,7 +43,7 @@ int main()
     cout << "Enter k: ";
     cin >> k;
 
-    rotateLeftByK(v, k);
+    rotate_left_by_k(v, k);
 
     for (auto i : v)
         cout << i << " ";

@@ -2,7 +2,7 @@
 using namespace std;
 
 // Frequency Counting
-string isAnagram(string s1, string s2)
+string is_anagram(string s1, string s2)
 {
     if (s1.length() != s2.length())
         return "No";
@@ -30,6 +30,6 @@ int main()
     getline(cin, word1);
     printf("Enter a String 2: ");
     getline(cin, word2);
-    cout << isAnagram(word1, word2) << endl;
+    cout << is_anagram(word1, word2) << endl;
     return 0;
 }

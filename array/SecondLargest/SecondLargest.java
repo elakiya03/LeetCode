@@ -1,3 +1,4 @@
+package array.secondlargest;
 
 import java.util.Scanner;
 

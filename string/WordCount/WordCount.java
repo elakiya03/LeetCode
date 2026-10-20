@@ -1,4 +1,4 @@
-package string.WordCount;
+package string.wordcount;
 
 import java.util.Scanner;
 

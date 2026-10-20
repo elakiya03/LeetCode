@@ -1,4 +1,4 @@
-def removeduplicates(arr):
+def remove_duplicates(arr):
     seen = set()  # using hash set
     for x in arr:
         if x not in seen:
@@ -12,4 +12,4 @@ if __name__ == "__main__":
     print("Enter ", n, " elements")
     for i in range(n):
         arr.append(int(input()))
-    removeduplicates(arr)
+    remove_duplicates(arr)

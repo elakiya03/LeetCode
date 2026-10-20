@@ -1,3 +1,4 @@
+package string.countvowels;
 
 import java.util.Scanner;
 

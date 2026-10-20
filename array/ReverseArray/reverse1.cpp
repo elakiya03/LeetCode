@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void reverseArray(vector<int> &v)
+void reverse_array(vector<int> &v)
 {
     int left = 0, right = v.size() - 1;
 
@@ -16,11 +16,11 @@ void reverseArray(vector<int> &v)
     cout << endl;
 }
 
-void reverseArrayUsingSinglePointer(vector<int> &v)
+void reverse_array_using_single_pointer(vector<int> &v)
 {
     for (int i = 0; i < v.size() / 2; i++)
         swap(v[i], v[v.size() - i - 1]);
-    
+
     cout << "Single Pointer" << endl;
     for (int i : v)
         cout << i << " ";
@@ -55,11 +55,11 @@ int main()
 
     // 2. Two pointers
     vector<int> v2 = v;
-    reverseArray(v2);
+    reverse_array(v2);
 
     // 3. Single pointer
     vector<int> v3 = v;
-    reverseArrayUsingSinglePointer(v3);
+    reverse_array_using_single_pointer(v3);
 
     return 0;
 }

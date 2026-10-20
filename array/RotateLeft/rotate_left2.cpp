@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-vector<int> rotateLeftByK(vector<int> v, int k)
+vector<int> rotate_left_by_k(vector<int> v, int k)
 {
     int n = v.size();
     k = k % n;
@@ -35,7 +35,7 @@ int main()
     cout << "Enter k: ";
     cin >> k;
 
-    v = rotateLeftByK(v, k);
+    v = rotate_left_by_k(v, k);
 
     for (auto i : v)
         cout << i << " ";

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-const char *removeDuplicateChar(char *str)
+const char *remove_duplicate_char(char *str)
 {
     int length = strlen(str);
 
@@ -25,6 +25,6 @@ int main()
     fgets(sentence, sizeof(sentence), stdin);
     // remove newline
     sentence[strcspn(sentence, "\n")] = '\0';
-    printf("%s\n", removeDuplicateChar(sentence));
+    printf("%s\n", remove_duplicate_char(sentence));
     return 0;
 }

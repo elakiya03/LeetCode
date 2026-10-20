@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int largestInArray(vector<int> &num)
+int largest_in_array(vector<int> &num)
 {
     int largest = num.at(0);
 
@@ -26,7 +26,7 @@ int main()
         cin >> x;
         v.push_back(x);
     }
-    cout << "Largest: " << largestInArray(v) << endl;
+    cout << "Largest: " << largest_in_array(v) << endl;
 
     return 0;
 }

@@ -5,7 +5,7 @@ def reverse(arr, left, right):  # two pointer
         left += 1
         right -= 1
 
-def rotateleftbyk(arr, k):
+def rotate_left_by_k(arr, k):
     n = len(arr)
     k %= n
 
@@ -23,5 +23,5 @@ if __name__ == "__main__":
         arr.append(int(input()))
     k = int(input("Enter k: "))
 
-    rotateleftbyk(arr, k)
+    rotate_left_by_k(arr, k)
     print(arr)

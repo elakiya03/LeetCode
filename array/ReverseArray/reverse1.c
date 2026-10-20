@@ -7,7 +7,7 @@ void swap(int *a, int *b)
     *b = temp;
 }
 
-int *reverseArray(int arr[], int n)
+int *reverse_array(int arr[], int n)
 {
     // Two pointer Method
     int left = 0, right = n - 1;
@@ -35,7 +35,7 @@ int main()
         scanf("%d", &arr[i]);
     }
 
-    reverseArray(arr, n);
+    reverse_array(arr, n);
 
     for (int i = 0; i < n; i++)
     {

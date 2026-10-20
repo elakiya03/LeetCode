@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int longestStreak(int arr[], int n)
+int longest_streak(int arr[], int n)
 {
     int maxstreak = 1;
     int streak = 1;
@@ -32,7 +32,7 @@ int main()
     {
         scanf("%d", &arr[i]);
     }
-    printf("Longest streak: %d\n", longestStreak(arr, n));
+    printf("Longest streak: %d\n", longest_streak(arr, n));
 
     return 0;
 }

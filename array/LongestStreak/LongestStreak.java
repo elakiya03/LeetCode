@@ -1,3 +1,4 @@
+package array.longeststreak;
 
 import java.util.Scanner;
 

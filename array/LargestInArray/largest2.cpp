@@ -2,7 +2,7 @@
 #include <algorithm>
 using namespace std;
 
-int largestInArray(vector<int> &num)
+int largest_in_array(vector<int> &num)
 {
 
     // std::max_element: A built-in algorithm that finds the largest value in a given range.
@@ -26,7 +26,7 @@ int main()
         cin >> x;
         v.push_back(x);
     }
-    cout << "Largest: " << largestInArray(v) << endl;
+    cout << "Largest: " << largest_in_array(v) << endl;
 
     return 0;
 }

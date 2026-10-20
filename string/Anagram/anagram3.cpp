@@ -3,7 +3,7 @@
 using namespace std;
 
 // Hashing
-bool isAnagram(string s1, string s2)
+bool is_anagram(string s1, string s2)
 {
     if (s1.length() != s2.length())
         return false;
@@ -32,6 +32,6 @@ int main()
     printf("Enter a String 1: ");
     getline(cin, word2);
 
-    cout << (isAnagram(word1, word2) ? "Yes" : "No") << endl;
+    cout << (is_anagram(word1, word2) ? "Yes" : "No") << endl;
     return 0;
 }

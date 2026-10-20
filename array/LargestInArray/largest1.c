@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int largestInArray(int arr[], int n)
+int largest_in_array(int arr[], int n)
 {
     int max = arr[0];
 
@@ -26,6 +26,6 @@ int main()
     {
         scanf("%d", &arr[i]);
     }
-    printf("Largest: %d\n", largestInArray(arr, n));
+    printf("Largest: %d\n", largest_in_array(arr, n));
     return 0;
 }

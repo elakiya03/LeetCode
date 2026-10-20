@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void mergeTwoSortedArray(vector<int> &v1, vector<int> &v2)
+void merge_two_sorted_array(vector<int> &v1, vector<int> &v2)
 {
     int n1 = v1.size();
     int n2 = v2.size();
@@ -57,6 +57,6 @@ int main()
         v2.push_back(x);
     }
 
-    mergeTwoSortedArray(v1, v2);
+    merge_two_sorted_array(v1, v2);
     return 0;
 }

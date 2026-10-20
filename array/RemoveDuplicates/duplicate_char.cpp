@@ -3,7 +3,7 @@
 using namespace std;
 
 // Function to remove adjacent duplicates using a stack
-string removeDuplicateChar(string str)
+string remove_duplicate_char(string str)
 {
     string result = "";
     stack<char> st;
@@ -30,7 +30,7 @@ int main()
     string s;
     cout << "Enter a string: ";
     getline(cin, s);
-    cout << removeDuplicateChar(s) << endl;
+    cout << remove_duplicate_char(s) << endl;
 
     return 0;
 }
