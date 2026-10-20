@@ -1,28 +1,56 @@
-/*
- * Program: Word Counter
- * Description: Reads a string and counts the number of words in it.
- * A word is defined as any sequence of characters separated by spaces.
- */
-
 #include <stdio.h>
 #include <string.h>
-int main()
+#include <ctype.h>
+#include <stdbool.h>
+
+// 1
+int no_of_words(char *sentence)
 {
-    char s[500];
-    fgets(s, sizeof(s), stdin);
-    s[strcspn(s, "\n")] = 0; // go through str until hit \n, give me that position
 
     int count = 0;
 
     // first word check
-    if (s[0] != '\0' && s[0] != ' ')
+    if (sentence[0] != '\0' && sentence[0] != ' ')
         count = 1;
 
-    for (int i = 0; s[i] != '\0'; i++)
+    for (int i = 0; sentence[i] != '\0'; i++)
     {
-        if (s[i] == ' ' && s[i + 1] != '\0' && s[i + 1] != ' ')
+        if (sentence[i] == ' ' && sentence[i + 1] != '\0' && sentence[i + 1] != ' ')
             count++;
     }
-    printf("%d words\n", count);
+
+    return count;
+}
+
+// 2
+int noOfWords(char sentence[])
+{
+    int count = 0;
+    bool flag = false;
+
+    for (int i = 0; sentence[i] != '\0'; i++)
+    {
+        if (isspace(sentence[i]))
+        {
+            flag = false; // Outside word: flase
+        }
+        else if (isalnum(sentence[i]) && !flag)
+        {
+            count++;
+            flag = true; // Inside word: true
+        }
+    }
+    return count;
+}
+
+int main()
+{
+    char s[500];
+    printf("Enter a sentence: ");
+    fgets(s, sizeof(s), stdin);
+    s[strcspn(s, "\n")] = 0; // go through str until hit \n, give me that position
+
+    printf("%d words\n", no_of_words(s));
+    printf("%d words\n", noOfWords(s));
     return 0;
 }

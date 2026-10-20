@@ -1,19 +1,25 @@
-/*
- * Program: Word Counter (C++)
- * Description: Reads a string and counts the number of words in it.
- * A word is defined as any sequence of characters separated by spaces.
- */
-
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <cctype>
 using namespace std;
 
-int main()
+// 1. Using String Stream
+int noOfWords(string str)
 {
-    string str;
-    getline(cin, str);
+    stringstream ss(str);
+    string word;
+    int count = 0;
+    while (ss >> word) // Extract words separated by spaces, tabs, or newlines
+    {
+        count++;
+    }
+    return count;
+}
 
+// 2. Normal flow
+int no_of_words(string str)
+{
     int count = 0;
 
     if (!str.empty() && str[0] != ' ')
@@ -24,6 +30,16 @@ int main()
         if (str[i] == ' ' && str[i + 1] != ' ')
             count++;
     }
+    return count;
+}
 
-    cout << "Words: " << count << endl;
+int main()
+{
+    string str;
+    printf("Enter a sentence: ");
+    getline(cin, str);
+
+    cout << "Words: " << no_of_words(str) << endl;
+
+    cout << "Words: " << noOfWords(str) << endl;
 }
