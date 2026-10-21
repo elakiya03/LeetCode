@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
+// Two pointer
 const char *reverse(char str[])
 {
     int len = strlen(str);
@@ -21,8 +22,8 @@ const char *reverse(char str[])
 int main()
 {
     char s[100];
-    printf("Enter a string to reverse: ");
+    printf("Enter a sentence to reverse: ");
     fgets(s, sizeof(s), stdin);
-    printf("Reversed String: %s\n", reverse(s));
+    printf("Reversed sentence: %s\n", reverse(s));
     return 0;
 }

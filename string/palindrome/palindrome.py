@@ -16,8 +16,9 @@ def is_palindrome_twopointer(word: str) -> bool:
 
 
 def is_palindrome(word):
-    for i in range(len(word)):
-        if word[i].lower() != word[len(word) - i - 1].lower():
+    word = word.lower()
+    for i in range(len(word) // 2):
+        if word[i] != word[len(word) - i - 1]:
             return False
         return True
 
