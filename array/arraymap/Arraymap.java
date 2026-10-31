@@ -1,4 +1,4 @@
-package array.arraymapfunction;
+package array.arraymap;
 
 import java.util.Arrays;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-// package array.countaboveavg;
+package array.aboveavgcount;
 
 import java.util.Arrays;
 
