@@ -1,15 +1,15 @@
-package array.countaboveavg;
+// package array.countaboveavg;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Count {
 
     static int countingAboveAverage(int[] arr) {
-        // Streams
+        // Streams implementation preserved
         double avg = Arrays.stream(arr).average().orElse(0);
-        int count = 0;
+        System.out.printf("Average: %.6f\n", avg);
 
+        int count = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] > avg) {
                 count++;
@@ -19,19 +19,23 @@ public class Count {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        // 1. Safety Check: Ensure the user provided at least the count and one number
+        if (args.length < 2) {
+            System.out.println("Error: Missing arguments!");
+            System.out.println("Usage: java array.countaboveavg.Count <total_count> <num1> <num2> ...");
+            return;
+        }
 
-        System.out.println("Enter no of elements: ");
-        int n = scanner.nextInt();
-
-        System.out.println("Enter " + n + " values ");
+        // 2. Read the first argument (args[0]) as the total array size 'n'
+        // In Java, args[0] is the first USER argument (not the program name!)
+        int n = Integer.parseInt(args[0]);
         int[] arr = new int[n];
+
+        // 3. Loop through the remaining elements starting from index 1
         for (int i = 0; i < n; i++) {
-            arr[i] = scanner.nextInt();
+            arr[i] = Integer.parseInt(args[i + 1]);
         }
 
         System.out.println("Above Average: " + countingAboveAverage(arr));
-        scanner.close();
-
     }
 }

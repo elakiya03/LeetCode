@@ -1,4 +1,3 @@
-package array.reversearray;
 
 import java.util.Arrays;
 import java.util.Scanner;
