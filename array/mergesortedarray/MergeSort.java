@@ -1,4 +1,4 @@
-package array.mergesorted;
+package array.mergesortedarray;
 
 import java.util.*;
 
