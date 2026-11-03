@@ -15,7 +15,7 @@
 - [Common Data Structures](#11-common-data-structures)
 - [Function Return Types](#12-function-return-types)
 
-## 1. File Naming Conventions
+## 1. File Naming Convention
 
 Use consistent naming so your files are easy to recognize and organize.
 
